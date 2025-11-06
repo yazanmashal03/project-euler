@@ -1,9 +1,12 @@
-from scipy.special import comb
+# I am thinking of using this recursive form for calculating the E[I_i], and then taking the sum of the E[I_i] for all i from 1 to n.
+
+def get_expectation_i(a, b, i, n):
+    if i == n - 1:
+        return 1
+    else:
+        return (1/2)**(n-i-1)
 
 def get_f(a, b, n=100):
-    sum = 0
-    for i in range(1, n):
-        sum += (1/((a+b)*i)) * comb((a+b)*i, a*i, exact=False) * (2 ** (-(a+b)*i))
-    return 1 - sum
+    return 0
 
 print(get_f(1, 2))
